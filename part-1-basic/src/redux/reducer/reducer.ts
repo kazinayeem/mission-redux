@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Reducer } from "redux";
+import { ADD, REMOVE } from "../actionType/Type";
 
 // Define types for todo item and filter
 export interface Todo {
@@ -18,6 +19,7 @@ interface Filters {
 export interface AppState {
   todos: Todo[];
   filters: Filters;
+  counter: number;
 }
 
 // Define action types
@@ -37,6 +39,7 @@ const initialState: AppState = {
     status: "All",
     colors: [],
   },
+  counter: 0,
 };
 
 // Define the reducer function
@@ -44,8 +47,22 @@ const appReducer: Reducer<AppState, Action> = (
   state = initialState,
   action
 ) => {
-  // The reducer normally looks at the action type field to decide what happens
   switch (action.type) {
+    case ADD:
+      return {
+        ...state,
+         counter : state.counter + 1
+      };
+      case  REMOVE :
+        return{
+          ...state,
+          counter : state.counter - 1
+        }
+      case "EXTRS":
+        return{
+          ...state,
+          counter : state.counter + action.payload
+        }
     default:
       return state;
   }
