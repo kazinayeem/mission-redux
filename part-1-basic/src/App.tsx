@@ -2,15 +2,16 @@ import { useSelector } from "react-redux";
 import { ListGroup } from "react-bootstrap";
 import { AppState, Todo } from "./redux/reducer/reducer";
 import { useDispatch } from "react-redux";
+import { increment } from "./redux/action/action";
 function App() {
   const { todos, counter } = useSelector((state: AppState) => state);
   const dispatch = useDispatch();
 
-  const increment = () => {
-    dispatch({
-      type: "ADD",
-    });
-  };
+  // const increment = () => {
+  //   dispatch({
+  //     type: "ADD",
+  //   });
+  // };
 
   const decriment = () => {
     dispatch({
@@ -43,7 +44,10 @@ function App() {
       </ListGroup>
 
       <div className="container">
-        <button className="btn btn-danger" onClick={increment}>
+        <button
+          className="btn btn-danger"
+          onClick={() => dispatch(increment())}
+        >
           ADD
         </button>
         <h1>couter : {counter} </h1>
