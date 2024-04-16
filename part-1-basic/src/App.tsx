@@ -18,11 +18,10 @@ function App() {
     });
   };
 
-
   const extra = () => {
     dispatch({
       type: "EXTRS",
-      payload : 2
+      payload: 2,
     });
   };
 
@@ -49,11 +48,11 @@ function App() {
         </button>
         <h1>couter : {counter} </h1>
         <button className="btn btn-danger" onClick={decriment}>
-          ADD
+          REMOVE
         </button>
 
         <button className="btn btn-danger" onClick={extra}>
-          extra
+          ADD 2
         </button>
       </div>
     </div>
