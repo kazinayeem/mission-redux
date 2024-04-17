@@ -3,6 +3,7 @@ import { ListGroup } from "react-bootstrap";
 import { AppState, Todo } from "./redux/reducer/reducer";
 import { useDispatch } from "react-redux";
 import { increment } from "./redux/action/action";
+import AddTodo from "./AddTodo";
 function App() {
   const { todos, counter } = useSelector((state: AppState) => state);
   const dispatch = useDispatch();
@@ -42,6 +43,8 @@ function App() {
           </ListGroup.Item>
         ))}
       </ListGroup>
+      <AddTodo />
+      <hr />
 
       <div className="container">
         <button

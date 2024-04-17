@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Reducer } from "redux";
-import { ADD, REMOVE } from "../actionType/Type";
+import { ADD, ADDTODO, REMOVE } from "../actionType/Type";
 
-// Define types for todo item and filter
 export interface Todo {
-  id: number;
+  id: string | number;
   text: string;
   completed: boolean;
   color?: string;
@@ -25,7 +24,7 @@ export interface AppState {
 // Define action types
 interface Action {
   type: string;
-  payload?: any; // You can define specific payload types for different action types
+  payload?: any;
 }
 
 // Define the initial state
@@ -51,18 +50,23 @@ const appReducer: Reducer<AppState, Action> = (
     case ADD:
       return {
         ...state,
-         counter : state.counter + 1
+        counter: state.counter + 1,
       };
-      case  REMOVE :
-        return{
-          ...state,
-          counter : state.counter - 1
-        }
-      case "EXTRS":
-        return{
-          ...state,
-          counter : state.counter + action.payload
-        }
+    case REMOVE:
+      return {
+        ...state,
+        counter: state.counter - 1,
+      };
+    case "EXTRS":
+      return {
+        ...state,
+        counter: state.counter + action.payload,
+      };
+    case ADDTODO:
+      return {
+        ...state,
+        todos: [...state.todos, action.payload],
+      };
     default:
       return state;
   }

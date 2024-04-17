@@ -12,11 +12,13 @@
   "dependencies": {
     "@types/react-redux": "^7.1.33",
     "bootstrap": "^5.3.3",
+    "nanoid": "^5.0.7",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.1",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
