@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "react": "^19.0.0-canary-8afa144bd-20240416",
     "react-dom": "^19.0.0-canary-8afa144bd-20240416"
