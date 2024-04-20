@@ -4,9 +4,12 @@ import { AppState, Todo } from "./redux/reducer/reducer";
 import { useDispatch } from "react-redux";
 import { increment } from "./redux/action/action";
 import AddTodo from "./AddTodo";
+import GetApi from "./GetApi";
 function App() {
-  const { todos, counter } = useSelector((state: AppState) => state);
+
+  
   const dispatch = useDispatch();
+  const { todos, counter } = useSelector((state: AppState) => state);
 
   // const increment = () => {
   //   dispatch({
@@ -30,6 +33,7 @@ function App() {
   return (
     <div className="container">
       <h1>Basic row redux</h1>
+      <GetApi/>
       <ListGroup>
         {todos.map((todo: Todo) => (
           <ListGroup.Item

@@ -1,4 +1,4 @@
-import { ADDTODO } from "../actionType/Type";
+import { ADDTODO, TodoTypeApi } from "../actionType/Type";
 import { Todo } from "../reducer/reducer";
 
 export const increment = () => {
@@ -13,4 +13,13 @@ export const addTodo = (todo : Todo) => {
       type : ADDTODO,
       payload  : todo
     }
+}
+
+
+
+export const FetchTodo = (todo : TodoTypeApi[]) => {
+  return{
+    type : "SUCCESS",
+    payload  : todo
+  }
 }

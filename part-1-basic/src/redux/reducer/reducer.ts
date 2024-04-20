@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Reducer } from "redux";
-import { ADD, ADDTODO, REMOVE } from "../actionType/Type";
+import { ADD, ADDTODO, REMOVE, TodoTypeApi } from "../actionType/Type";
 
 export interface Todo {
   id: string | number;
@@ -19,6 +19,7 @@ export interface AppState {
   todos: Todo[];
   filters: Filters;
   counter: number;
+  data : TodoTypeApi[]
 }
 
 // Define action types
@@ -39,6 +40,7 @@ const initialState: AppState = {
     colors: [],
   },
   counter: 0,
+  data : []
 };
 
 // Define the reducer function
@@ -67,8 +69,15 @@ const appReducer: Reducer<AppState, Action> = (
         ...state,
         todos: [...state.todos, action.payload],
       };
+    case "SUCCESS":
+      return{
+        ...state,
+        data : action.payload
+
+      }
     default:
       return state;
+
   }
 };
 
