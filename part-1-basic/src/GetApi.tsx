@@ -1,4 +1,4 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { FetchTodo } from "./redux/action/action";
 import { TodoTypeApi } from "./redux/actionType/Type";
@@ -12,9 +12,7 @@ const GetApi = () => {
     fetch("https://jsonplaceholder.typicode.com/todos/")
       .then((res) => res.json())
       .then((todo: TodoTypeApi[]) => {
-    
-        dispatch(FetchTodo(todo))
-        
+        dispatch(FetchTodo(todo));
       })
       .catch((e) => {
         console.log(e);
@@ -23,23 +21,26 @@ const GetApi = () => {
 
   const { data } = useSelector((state: AppState) => state);
 
-console.log(data);
+  console.log(data);
 
- 
-
-  return <div className="container ">
-    <h1>Get Api</h1>
-    <ListGroup>
-        {data.map((todo: TodoTypeApi, index : number) => (
+  return (
+    <div className="container ">
+      <h1>Get Api</h1>
+      <ListGroup>
+        {data.map((todo: TodoTypeApi, index: number) => (
           <ListGroup.Item
             key={todo.id}
-            
+            style={{
+              textDecoration: todo.completed ? "line-through" : "none",
+              backgroundColor: todo.completed ? "grey" : "cadetblue",
+            }}
           >
-         ID : {index+ 1}  || {todo.title}
+            ID : {index + 1} || {todo.title}
           </ListGroup.Item>
         ))}
       </ListGroup>
-  </div>;
+    </div>
+  );
 };
 
 export default GetApi;
