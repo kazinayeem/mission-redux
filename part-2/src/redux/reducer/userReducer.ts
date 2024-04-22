@@ -12,6 +12,15 @@ interface AppState {
 const appReducer: Reducer<AppState, Action> = (
   state = initialState,
   action
-) => {};
+) => {
+  switch (action.type) {
+    case value:
+      
+      break;
+  
+    default:
+      break;
+  }
+};
 
 export default counterReducer;
