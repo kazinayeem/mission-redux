@@ -33,8 +33,7 @@ const AddTodo = () => {
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(addTodo(todo));
-    console.log(todo);
-    
+      
   };
 
   return (
